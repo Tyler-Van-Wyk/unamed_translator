@@ -24,7 +24,6 @@ for files in os.listdir(path):
             os.rename(files, trans_files)
             break
         elif answer == 'n':
-            continue
             break
         else:
             print('Invalid input. Please answer "y" or "n"')
