@@ -18,11 +18,14 @@ os.chdir(path)
 for files in os.listdir(path):
     trans_files = translate(files)
     print('"' + files + '"\n' + ' will be translated to: \n' + '"' + trans_files + '"' + '\n proceed? (y/n)')
-    answer = input()
-    if answer == 'y':
-        os.rename(files, trans_files)
-    elif answer == 'n':
-        continue
-    else:
-        print('Invalid input. Please answer "y" or "n"')
-        continue
+    while True:
+        answer = input()
+        if answer == 'y':
+            os.rename(files, trans_files)
+            break
+        elif answer == 'n':
+            continue
+            break
+        else:
+            print('Invalid input. Please answer "y" or "n"')
+            continue
