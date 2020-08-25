@@ -2,11 +2,11 @@ import os
 from googletrans import Translator
 translator = Translator()
 
-#Function that uses the google translate api to translate a filename in string form
+#Function that takes in a filepath as an argument and returns it translated into english
 def translate(filename):
                filename_trans = translator.translate(filename)
                return filename_trans.text
-
+#Initial input prompt
 print('Provide the full path of the directory that contains the file/folder names you want to translate.')
 
 path = input()
@@ -18,7 +18,7 @@ os.chdir(path)
 for files in os.listdir(path):
     trans_files = translate(files)
     print('"' + files + '"\n' + ' will be translated to: \n' + '"' + trans_files + '"' + '\n proceed? (y/n)')
-    while True:
+    while True:   #UI logic
         answer = input()
         if answer.lower() == 'y' or answer.lower() == 'yes':
             os.rename(files, trans_files)
